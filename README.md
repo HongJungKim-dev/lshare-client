@@ -50,8 +50,8 @@ npm run start
 
 ## 자료
 
-[팀 노션 페이지](https://www.notion.so/LearnNshare-51f690835d05434a9ee3197b5e91190a)
+[팀 노션 페이지](https://nickel-plume-9ed.notion.site/LearnNshare-51f690835d05434a9ee3197b5e91190a)
 
-[프론트엔드 고민 사항](https://www.notion.so/f217126bb6444aecb53d5fedec2f5dc8)
+[프론트엔드 고민 사항](https://nickel-plume-9ed.notion.site/f217126bb6444aecb53d5fedec2f5dc8)
 
-[figma 정리](https://www.notion.so/figma-763ff924ec8540e6b211a0b512809984)
+[figma 정리](https://nickel-plume-9ed.notion.site/figma-763ff924ec8540e6b211a0b512809984)
