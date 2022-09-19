@@ -26,6 +26,14 @@ lshare-client
   - 캘린더 구현
   - 캐러셀 구현
 
+## 기술스택
+
+- react
+- typescript
+- recoil
+- webpack
+- storybook
+
 ## 실행방법
 
 설치
