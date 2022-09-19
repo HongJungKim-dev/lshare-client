@@ -6,6 +6,7 @@ import LabelList from '@components/LabelList';
 import CommentWrite from '@components/CommentWrite';
 import Button from '@components/common/Button';
 import Avatar from '@components/common/Avatar';
+import Divider from '@components/common/Divider';
 
 export const CustomIconCountBox = styled(IconCountBox)`
   margin: 0 auto;
@@ -89,7 +90,7 @@ export const ControlsContainer = styled.div`
 
 export const Content = styled.div`
   margin: 0 0 32px 0;
-  line-height: 150%;
+  line-height: 160%;
 `;
 
 export const FlexBox = styled.div`
@@ -99,7 +100,7 @@ export const FlexBox = styled.div`
 `;
 
 export const Title = styled.span`
-  line-height: 150%;
+  line-height: 160%;
 `;
 
 export const TitleContainer = styled.div`
@@ -113,4 +114,21 @@ export const Container = styled.div`
 
 export const CustomLikeButton = styled(Button)<{ isSelected: boolean }>`
   filter: ${({ isSelected }) => isSelected && 'brightness(90%)'};
+`;
+
+export const DeleteButton = styled(Button)`
+  margin: 0 0 0 16px;
+`;
+
+export const HorizontalDivider = styled(Divider)`
+  margin: 16px 0;
+`;
+
+export const Flex = styled.div`
+  ${({ theme }) => theme.mixins.flexBox({ justify: 'space-between', align: 'center' })}
+`;
+
+export const LoadingContainer = styled.div`
+  ${({ theme }) => theme.mixins.flexBox({})};
+  margin: 8px 0;
 `;

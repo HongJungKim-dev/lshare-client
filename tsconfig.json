@@ -9,7 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "isolatedModules": true,
-    "declaration": true,
+    "declaration": false,
     "outDir": "dist",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

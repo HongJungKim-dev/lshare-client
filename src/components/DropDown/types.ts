@@ -1,6 +1,7 @@
 export type Items = {
   id: number;
-  option: string;
+  type: string;
+  content: string;
 };
 
 export default Items;

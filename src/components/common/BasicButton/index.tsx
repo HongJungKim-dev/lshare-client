@@ -9,18 +9,8 @@ type BasicButtonProps = {
   handleClick?: () => void;
 };
 
-const BasicButton = ({
-  disabled = false,
-  children = '',
-  className,
-  handleClick,
-}: BasicButtonProps) => (
-  <StyledButton
-    type="button"
-    disabled={disabled}
-    className={className}
-    onClick={handleClick}
-  >
+const BasicButton = ({ disabled = false, children = '', className, handleClick }: BasicButtonProps) => (
+  <StyledButton type="button" disabled={disabled} className={className} onClick={handleClick}>
     {children}
   </StyledButton>
 );

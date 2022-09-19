@@ -12,4 +12,9 @@ export const sizes: any = {
   },
 };
 
+export const getDate = () =>
+  `${new Date().getFullYear()}-${
+    new Date().getMonth() + 1
+  }-${new Date().getDate()}`;
+
 export const ERROR_MSG = '댓글을 게시하지 못했습니다.';

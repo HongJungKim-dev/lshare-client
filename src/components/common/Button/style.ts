@@ -7,7 +7,7 @@ const xLargeSize = css`
 `;
 
 const borderStyle = css`
-  border-radius: 12px;
+  border-radius: 4px;
 `;
 
 const xLargeStyle = css`
@@ -31,7 +31,7 @@ const mediumSize = css`
 `;
 
 const mediumBorderStyle = css`
-  border-radius: 10px;
+  border-radius: 4px;
 `;
 
 const mediumStyle = css`
@@ -45,7 +45,7 @@ const smallSize = css`
 `;
 
 const smallBorderStyle = css`
-  border-radius: 12px;
+  border-radius: 4px;
 `;
 
 const smallStyle = css`
@@ -54,7 +54,7 @@ const smallStyle = css`
 `;
 
 const xsmallBorderStyle = css`
-  border-radius: 16px;
+  border-radius: 4px;
 `;
 
 const tinySize = css`
@@ -91,7 +91,6 @@ type buttonProps = {
   size: string;
   disabled?: boolean;
 };
-
 const StyledButton = styled(BasicButton)<buttonProps>`
   ${({ size }) => buttonStyles[size]};
   color: ${({ theme, mode }) => mode === 'accent' && theme.colors.background};

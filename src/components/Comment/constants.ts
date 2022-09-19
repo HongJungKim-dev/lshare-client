@@ -14,6 +14,9 @@ const replys: replyType[] = [
     avatorAlt: '',
     emojis,
     isAuthorized: false,
+    isStudyOrganizer: true,
+    isMyComment: false,
+    writerId: 3,
   },
   {
     id: 2,
@@ -27,6 +30,9 @@ const replys: replyType[] = [
     avatorAlt: '',
     emojis,
     isAuthorized: false,
+    isStudyOrganizer: true,
+    isMyComment: true,
+    writerId: 5,
   },
   {
     id: 3,
@@ -40,6 +46,9 @@ const replys: replyType[] = [
     avatorAlt: '',
     emojis,
     isAuthorized: false,
+    isStudyOrganizer: true,
+    isMyComment: false,
+    writerId: 2,
   },
 ];
 

@@ -51,12 +51,10 @@ const useDateForm = (inintialState = ''): useDateFormType => {
     /**
      * 1 -> 12, 1 두가지 경우가 있어서 monthNumber >= FEB로 필터링
      */
-    const isOneDigitMonthExpectDEC =
-      monthNumber >= months.FEB && monthNumber <= months.SEP;
+    const isOneDigitMonthExpectDEC = monthNumber >= months.FEB && monthNumber <= months.SEP;
 
     const isOverLastMonth = monthNumber > months.DEC;
-    const isOverAvailableDate =
-      dateNumber >= months.APR && dateNumber <= months.SEP;
+    const isOverAvailableDate = dateNumber >= months.APR && dateNumber <= months.SEP;
 
     const exceptionCases = {
       'YYYY-MMMtoYYYY-MM': month.length === 1,

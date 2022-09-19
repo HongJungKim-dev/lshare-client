@@ -1,17 +1,7 @@
+import replyType from '@components/types/Comment';
 import { atom } from 'recoil';
 
-type keyType =
-  | 'id'
-  | 'isWriter'
-  | 'nickname'
-  | 'time'
-  | 'isEdited'
-  | 'content'
-  | 'likeNum'
-  | 'reactions';
-
-type stateType = Record<keyType, any>;
-const commentState = atom<stateType[]>({
+const commentState = atom<replyType[]>({
   key: 'commentState',
   default: [],
 });

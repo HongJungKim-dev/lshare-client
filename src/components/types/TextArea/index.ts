@@ -1,3 +1,3 @@
-type sizeType = 'medium' | 'small' | 'large';
+type sizeType = 'medium' | 'small' | 'large' | 'xsmall';
 
 export default sizeType;

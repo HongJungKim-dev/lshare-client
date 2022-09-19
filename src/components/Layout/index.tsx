@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '@components/Footer';
 import * as S from './style';
 
 type LayoutProps = {
@@ -6,11 +7,11 @@ type LayoutProps = {
 };
 
 const Layout = ({ children }: LayoutProps) => (
-  <>
-    <S.CustomHeader />
+  <S.Container>
+    <S.CustomHeader type="header" />
     <S.Main>{children}</S.Main>
-    <S.Footer />
-  </>
+    <Footer />
+  </S.Container>
 );
 
 export default Layout;

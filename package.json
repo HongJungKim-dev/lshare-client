@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --config ./webpack.development.js",
     "build": "webpack",
-    "storybook": "start-storybook -p 9001"
+    "storybook": "start-storybook -p 9001",
+    "build:dev": "webpack --config ./webpack.development.js",
+    "build:prod": "webpack --config ./webpack.production.js"
   },
   "repository": {
     "type": "git",
@@ -50,14 +52,20 @@
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.4",
     "@types/styled-components": "5.1.25",
+    "axios": "0.27.2",
     "clean-webpack-plugin": "4.0.0",
+    "css-minimizer-webpack-plugin": "4.0.0",
     "dotenv": "16.0.0",
     "eslint-config-prettier": "8.5.0",
+    "mini-css-extract-plugin": "2.6.1",
     "react": "18.1.0",
+    "react-cookie": "4.1.1",
     "react-dom": "18.1.0",
     "react-router-dom": "6.3.0",
     "recoil": "0.7.4",
     "styled-components": "5.3.5",
-    "styled-reset": "4.4.2"
+    "styled-reset": "4.4.2",
+    "terser-webpack-plugin": "5.3.6",
+    "webpack-merge": "5.8.0"
   }
 }

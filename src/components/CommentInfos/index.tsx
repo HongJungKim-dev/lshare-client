@@ -7,21 +7,15 @@ type CommentInfosProps = {
   nickname: string;
   time: string;
   isEdited: boolean;
-  isWriter: boolean;
+  isStudyOrganizer: boolean;
+  isMyComment: boolean;
 };
 
-const CommentInfos = ({
-  avatorSrc,
-  avatorAlt,
-  nickname = '닉네임',
-  time = '10분',
-  isEdited,
-  isWriter,
-}: CommentInfosProps) => (
+const CommentInfos = ({ avatorSrc, avatorAlt, nickname = '닉네임', time = '10분', isEdited, isStudyOrganizer, isMyComment }: CommentInfosProps) => (
   <S.Container>
     <Avatar src={avatorSrc} alt={avatorAlt} />
-    <S.CustomCommentLabel isWriter={isWriter} nickname={nickname} />
-    <S.Time>{`${time}전`}</S.Time>
+    <S.CustomCommentLabel isStudyOrganizer={isStudyOrganizer} isMyComment={isMyComment} nickname={nickname} />
+    <S.Time>{`${time}`}</S.Time>
     {isEdited ? <S.IsEdited>(수정됨)</S.IsEdited> : ''}
   </S.Container>
 );

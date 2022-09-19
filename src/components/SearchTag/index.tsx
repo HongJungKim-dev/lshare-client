@@ -3,7 +3,7 @@ import Tag from '@common/Tag';
 import { useState } from 'react';
 import tagType from '@components/types/Tags';
 import * as S from './style';
-import { INPUT_SIZE, DEFAULT_MODE } from './constants';
+import { DEFAULT_MODE } from './constants';
 
 type SearchTagType = {
   className?: string;
@@ -12,18 +12,13 @@ type SearchTagType = {
   size?: string;
   isTagSingly?: boolean;
   tags?: tagType[];
+  label?: string;
   handleFocusDefault?: () => void;
 };
 
-const SearchTag = ({
-  className,
-  mode = DEFAULT_MODE,
-  id,
-  size,
-  isTagSingly = true,
-  tags,
-  handleFocusDefault,
-}: SearchTagType) => {
+const INPUT_SIZE = 'medium';
+
+const SearchTag = ({ className, mode = DEFAULT_MODE, id, size, isTagSingly = true, tags, label, handleFocusDefault }: SearchTagType) => {
   const handleClick = () => {};
 
   const [isResetTag, setIsResetTag] = useState(false);
@@ -55,6 +50,7 @@ const SearchTag = ({
           <S.CustomInput
             mode={mode}
             id={id}
+            label={label}
             size={size || INPUT_SIZE}
             handleFocusDefault={handleFocusDefault}
             isResetTag={isResetTag}
@@ -62,7 +58,7 @@ const SearchTag = ({
             isTagSingly={isTagSingly}
             tags={tags}
           />
-          <S.CustomButton size="medium" handleClick={handleClickReset}>
+          <S.CustomButton size="small" handleClick={handleClickReset}>
             초기화
           </S.CustomButton>
         </S.Container>

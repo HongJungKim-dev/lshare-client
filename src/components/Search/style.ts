@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import Button from '@components/common/Button';
 
 export const Container = styled.div`
-  ${({ theme }) =>
-    theme.mixins.flexBox({ justify: 'flex-start', align: 'center' })};
+  padding: 8px 0;
+  ${({ theme }) => theme.mixins.flexBox({ justify: 'space-between' })};
 `;
 
 export const CustomButton = styled(Button)`

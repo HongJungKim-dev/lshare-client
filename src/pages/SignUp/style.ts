@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Button from '@components/common/Button';
 import Input from '@components/common/Input';
 import DropDown from '@components/DropDown';
+import Divider from '@components/common/Divider';
 
 export const CustomDropDown = styled(DropDown)`
   margin: 28px 0 0 0;
@@ -33,18 +34,21 @@ export const CustomInputDefault = styled(Input)`
 `;
 
 export const CustomInputXsmall = styled(Input)`
-  margin: 12px 0 0 0;
+  margin: 28px 0 0 0;
 `;
 
 export const Title = styled.h1``;
 
 export const TitleContainer = styled.div`
-  ${({ theme }) =>
-    theme.mixins.flexBox({ justify: 'center', align: 'stretch' })}
+  ${({ theme }) => theme.mixins.flexBox({ justify: 'center', align: 'stretch' })}
   margin: 32px 0 0 0;
 `;
 
 export const MailContainer = styled.div`
   ${({ theme }) => theme.mixins.flexBox({ justify: 'space-between' })}
   margin: 32px 0 0 0;
+`;
+
+export const HorizontalDivider = styled(Divider)`
+  margin: 8px 0;
 `;

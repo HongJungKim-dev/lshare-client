@@ -12,20 +12,13 @@ export const Container = styled.div`
 export const SelectsContainer = styled.div`
   display: flex;
   align-items: center;
-  margin: 16px 0 0 0;
+  margin: 8px 0;
   float: right;
 `;
 
 export const CustomTextArea = styled(TextArea)`
   width: 992px;
   border-radius: 4px;
-`;
-
-export const RightContainer = styled.div`
-  display: flex;
-  margin: 16px 0;
-  float: right;
-  align-items: center;
 `;
 
 export const ButtonContainer = styled.div`
@@ -55,9 +48,51 @@ export const CustomCalendarInput = styled(Input)`
 `;
 
 export const CustomSearchTag = styled(SearchTag)`
-  margin: 8px 0 0 0;
+  margin: 8px 0;
 `;
 
 export const Progress = styled.span`
   margin: 0 8px 0 0;
+`;
+
+export const Label = styled.span`
+  margin: 0 8px 0 0;
+`;
+
+// TODO: Input스타일과 중복제거
+export const CalendarAreaContainer = styled.div<{ isClicked: boolean }>`
+  position: absolute;
+  display: ${({ isClicked }) => (isClicked ? 'block' : 'none')};
+  height: 264px;
+  padding: 8px;
+  background-color: ${({ theme }) => theme.colors.background};
+  top: 56px;
+  right: 0;
+  border-radius: 6px;
+  box-shadow: 1px 1px 1px 1px ${({ theme }) => theme.colors.line};
+`;
+
+export const CalendarInputContainer = styled.span`
+  position: relative;
+`;
+//
+
+export const FlexBox = styled.div`
+  ${({ theme }) => theme.mixins.flexBox({})}
+`;
+
+export const FloatBox = styled.div`
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  float: right;
+`;
+
+export const ErrorMessage = styled.div`
+  margin: 8px 0;
+  color: ${({ theme }) => theme.colors.accent.initial};
+`;
+
+export const ErrorMsg = styled.div`
+  color: ${({ theme }) => theme.colors.accent.initial};
 `;

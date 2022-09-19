@@ -24,23 +24,12 @@ const StudyManage = () => {
     <Layout>
       <S.Container>
         <S.Title>스터디 관리</S.Title>
+        <S.HorizontalDivider direction="horizontal" />
         <S.ItemContainer>
-          {studies.map(
-            ({
-              id,
-              nickName,
-              time,
-              title,
-              infos,
-              viewCount,
-              likeCount,
-              commentCount,
-              isRecruiting,
-              content,
-              tags,
-            }) => (
+          {studies.map(({ id, nickName, time, title, infos, viewCount, likeCount, commentCount, isRecruiting, content, tags }) => (
+            <>
               <S.Item key={`studyMange-posting-${id}`}>
-                <S.CustomLink to={`/detail/${id}`}>
+                <S.CustomLink to={`/api/studies/${id}`}>
                   <Posting
                     nickName={nickName}
                     time={time}
@@ -54,16 +43,13 @@ const StudyManage = () => {
                     tags={tags}
                   />
                 </S.CustomLink>
-                <S.CustomButton
-                  mode="accent"
-                  size="small"
-                  handleClick={handleClickManage}
-                >
+                <S.CustomButton mode="accent" size="small" handleClick={handleClickManage}>
                   관리
                 </S.CustomButton>
               </S.Item>
-            )
-          )}
+              <S.HorizontalDivider direction="horizontal" />
+            </>
+          ))}
         </S.ItemContainer>
       </S.Container>
     </Layout>

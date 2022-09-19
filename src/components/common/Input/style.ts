@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Tag from '@common/Tag';
-import Button from '@components/common/Button';
 
 export const CustomTag = styled(Tag)`
   margin: 0 0 0 8px;
@@ -21,9 +20,7 @@ export const InputContainer = styled.div<{
   ${({ theme }) => theme.mixins.flexBox({ justify: 'flex-start' })}
   background-color: ${({ theme }) => theme.colors.background};
   border-radius: 6px;
-  border: 1px solid
-    ${({ isFocused, theme }) =>
-      isFocused ? theme.colors.accent.initial : theme.colors.default.border};
+  border: 1px solid ${({ isFocused, theme }) => (isFocused ? theme.colors.accent.initial : theme.colors.default.border)};
   cursor: text;
   :focus-within {
     border: 1px solid ${({ theme }) => theme.colors.accent.initial};
@@ -73,7 +70,7 @@ export const LabelContainer = styled.div`
   margin: 0 8px 0 0;
 `;
 
-export const HighlightLabel = styled.h1`
+export const HighlightLabel = styled.h3`
   color: ${({ theme }) => theme.colors.accent.initial};
 `;
 
@@ -98,12 +95,4 @@ export const CalendarInput = styled.input<{
   :focus {
     border: 1px solid ${({ theme }) => theme.colors.accent.initial};
   }
-`;
-
-export const CustomButton = styled(Button)`
-  position: absolute;
-  width: 40px;
-  top: 50%;
-  right: 2%;
-  margin: -18px 0 0 0;
 `;

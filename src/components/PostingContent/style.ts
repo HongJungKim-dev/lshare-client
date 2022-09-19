@@ -10,5 +10,5 @@ export const Container = styled.span<{ clamp: number }>`
 
 export const Content = styled.span`
   height: 88px;
-  line-height: 150%;
+  line-height: 160%;
 `;

@@ -15,11 +15,17 @@ const smallSize = css`
   height: 80px;
 `;
 
+const xsmallSize = css`
+  width: 320px;
+  height: 240px;
+`;
+
 // TODO: any타입 구체화
 const sizes: any = {
   large: largeSize,
   medium: mediumSize,
   small: smallSize,
+  xsmall: xsmallSize,
 };
 
 export const Label = styled.label``;

@@ -1,8 +1,11 @@
 import { atom } from 'recoil';
 
-const dropDownItemState = atom({
+type keyType = 'id' | 'type' | 'content';
+type dropDownItemType = Record<keyType, any>;
+
+const dropDownItemState = atom<dropDownItemType[]>({
   key: 'dropDownItemState',
-  default: '',
+  default: [],
 });
 
 export default dropDownItemState;

@@ -21,6 +21,8 @@ import Cancel from '@assets/icons/cancel.svg';
 import Hash from '@assets/icons/hash.svg';
 import Logo from '@assets/icons/logo.svg';
 import Github from '@assets/icons/github.svg';
+import TodoList from '@assets/icons/todoList.svg';
+import Avatar from '@assets/icons/avatar.svg';
 import theme from '@style/theme';
 
 type iconsKeyType =
@@ -44,7 +46,9 @@ type iconsKeyType =
   | 'cancel'
   | 'hash'
   | 'logo'
-  | 'github';
+  | 'github'
+  | 'todoList'
+  | 'avatar';
 
 type IconsType = Record<iconsKeyType, any>;
 
@@ -70,12 +74,16 @@ const icons: IconsType = {
   hash: Hash,
   logo: Logo,
   github: Github,
+  todoList: TodoList,
+  avatar: Avatar,
 };
 
 type IconProps = {
   mode: iconsKeyType;
   color?: string;
   className?: string;
+  // eslint-disable-next-line react/no-unused-prop-types
+  handleClick?: () => void;
 };
 
 type colorType = Record<string, any>;
@@ -85,11 +93,11 @@ const colors: colorType = {
   accent: theme.colors.accent.initial,
 };
 
-const Icon = ({ mode, color = 'default', className }: IconProps) => {
+const Icon = ({ mode, color = 'default', className, handleClick }: IconProps) => {
   const TargetIcon = icons[mode];
   const stroke = colors[color] || color;
 
-  return <TargetIcon stroke={stroke} className={className} />;
+  return <TargetIcon stroke={stroke} className={className} onClick={handleClick} />;
 };
 
 export default Icon;

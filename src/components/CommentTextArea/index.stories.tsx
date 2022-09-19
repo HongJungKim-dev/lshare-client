@@ -7,9 +7,7 @@ export default {
   component: CommentTextArea,
 } as ComponentMeta<typeof CommentTextArea>;
 
-const Template: ComponentStory<typeof CommentTextArea> = (args) => (
-  <CommentTextArea {...args} />
-);
+const Template: ComponentStory<typeof CommentTextArea> = (args) => <CommentTextArea {...args} />;
 
 export const DefaultCommentTextArea = Template.bind({});
 DefaultCommentTextArea.args = {

@@ -59,7 +59,7 @@ const Input = ({
   const [isClickAway, setIsClickAway] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const targetInput = useRef<HTMLInputElement>(null);
-  const [keywords, setKeywords] = useState(tags?.map(({ content }) => content));
+  const [keywords, setKeywords] = useState(tags?.map(({ content }) => content) || []);
   const [currentTags, setCurrentTags] = useRecoilState(tagsState);
   const [searchWord, setSearchWord] = useState('');
 
@@ -117,9 +117,7 @@ const Input = ({
       return;
     }
 
-    const newKeywords = keywords.filter(
-      (keyword) => keyword !== selectedKeyword
-    );
+    const newKeywords = keywords.filter((keyword) => keyword !== selectedKeyword);
 
     setKeywords([...newKeywords]);
 
@@ -151,11 +149,7 @@ const Input = ({
     const newKeyword = targetElements[id].value;
     targetElements[id].value = '';
 
-    if (!keywords) {
-      return;
-    }
-
-    const isExistKeyword = keywords.find((keyword) => keyword === newKeyword);
+    const isExistKeyword = keywords?.find((keyword) => keyword === newKeyword);
     if (isExistKeyword) {
       return;
     }
@@ -172,10 +166,15 @@ const Input = ({
 
   const { width, height } = sizes[size];
 
-  const handleClickCalendar = () => {};
+  const { showingValue, handleDateChange, updateShowingInput } = useDateForm('');
 
-  const { showingValue, handleDateChange, updateShowingInput } =
-    useDateForm('');
+  const handleDateChangeValue = (event: ChangeEvent<HTMLInputElement>) => {
+    handleDateChange(event);
+    if (!handleChangeValue) {
+      return;
+    }
+    handleChangeValue(event);
+  };
 
   const delimiter = '-';
 
@@ -202,17 +201,7 @@ const Input = ({
                 </S.SearchLabel>
                 {isEssential && <S.HighlightLabel>*</S.HighlightLabel>}
               </S.LabelContainer>
-              <S.DefaultInput
-                type="text"
-                id={id}
-                placeholder={placeholder}
-                width={width}
-                height={height}
-                disabled={disabled}
-                value={value}
-                onFocus={handleFocusDefault}
-                onChange={handleChange}
-              />
+              <S.DefaultInput type="text" id={id} placeholder={placeholder} width={width} height={height} disabled={disabled} value={value} onFocus={handleFocusDefault} onChange={handleChange} />
             </S.LabelInputContainer>
           ) : (
             <>
@@ -222,17 +211,7 @@ const Input = ({
                 </S.SearchLabel>
                 {isEssential && <S.HighlightLabel>*</S.HighlightLabel>}
               </S.LabelContainer>
-              <S.DefaultInput
-                type="text"
-                id={id}
-                placeholder={placeholder}
-                width={width}
-                height={height}
-                disabled={disabled}
-                onFocus={handleFocusDefault}
-                value={value}
-                onChange={handleChange}
-              />
+              <S.DefaultInput type="text" id={id} placeholder={placeholder} width={width} height={height} disabled={disabled} onFocus={handleFocusDefault} value={value} onChange={handleChange} />
             </>
           )}
         </S.SearchForm>
@@ -244,34 +223,18 @@ const Input = ({
             <S.SearchLabel htmlFor={id} hasLabel={label.length > 0}>
               {label}
             </S.SearchLabel>
-            <S.InputContainer
-              width={width}
-              height={height}
-              onClick={handleFocus}
-              ref={ref}
-              isFocused={isFocused}
-            >
+            <S.InputContainer width={width} height={height} onClick={handleFocus} ref={ref} isFocused={isFocused}>
               <Icon mode="hash" />
               <S.TagsContainer>
-                {keywords?.map((keyword) => (
+                {currentTags?.map((keyword) => (
                   <S.Tags key={`keyword-${keyword}`}>
-                    <S.CustomTag
-                      mode="custom"
-                      handleClick={() => handleClickDeleteTag(keyword)}
-                    >
+                    <S.CustomTag className="tag" mode="custom" handleClick={() => handleClickDeleteTag(keyword)}>
                       {keyword}
                     </S.CustomTag>
                   </S.Tags>
                 ))}
               </S.TagsContainer>
-              <S.Input
-                type="text"
-                id={id}
-                placeholder={placeholder}
-                ref={targetInput}
-                onKeyDown={handleKeyDown}
-                onFocus={handleFocusDefault}
-              />
+              <S.Input type="text" id={id} placeholder={placeholder} ref={targetInput} onKeyDown={handleKeyDown} onFocus={handleFocusDefault} />
             </S.InputContainer>
           </S.SearchForm>
         </S.Container>
@@ -294,12 +257,9 @@ const Input = ({
                 height={height}
                 disabled={disabled}
                 onFocus={handleFocusDefault}
-                value={showingValue}
-                onChange={(event) => handleDateChange(event)}
+                value={value && showingValue} // value || showingValue
+                onChange={(event) => handleDateChangeValue(event)}
               />
-              <S.CustomButton size="tiny" handleClick={handleClickCalendar}>
-                <Icon mode="calendar" />
-              </S.CustomButton>
             </S.CalendarInputContainer>
           </S.LabelInputContainer>
         </div>

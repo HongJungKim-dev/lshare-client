@@ -14,23 +14,9 @@ type SearchType = {
   handleChangeValue?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
-const Search = ({
-  size,
-  id,
-  handleClickSearch,
-  handleFocusDefault,
-  className,
-  value,
-  handleChangeValue,
-}: SearchType) => (
+const Search = ({ size, id, handleClickSearch, handleFocusDefault, className, value, handleChangeValue }: SearchType) => (
   <S.Container className={className}>
-    <Input
-      id={id}
-      size={size}
-      handleFocusDefault={handleFocusDefault}
-      value={value}
-      handleChangeValue={handleChangeValue}
-    />
+    <Input id={id} size={size} handleFocusDefault={handleFocusDefault} value={value} handleChangeValue={handleChangeValue} />
     <S.CustomButton size="small" handleClick={handleClickSearch}>
       검색
     </S.CustomButton>

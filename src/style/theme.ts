@@ -1,12 +1,14 @@
 import { css } from 'styled-components';
 
 const colors = {
-  title: '#000000',
+  title: '#212121',
   white: '#FFFFFF',
   titlePlaceholder: '#9F9F9F',
   box: '#AAAAAA',
   line: '#D9D9D9',
+  circle: '#f7f7f7',
   placeholder: '#E5E5E5',
+  modal: '#FAFBFC',
   footer: '#F0F1F4',
   tag: '#EFF3FA',
   background: '#FFFFFF',
@@ -17,8 +19,8 @@ const colors = {
     disabled: '#D9D9D9',
   },
   accent: {
-    initial: '#FD9F28',
-    hover: '#FF8E00',
+    initial: '#3281F7',
+    hover: '#2b71d9',
   },
   tiny: {
     initial: '#FFFFFF',
@@ -28,12 +30,12 @@ const colors = {
   },
   label: {
     default: '#EFF3FA',
-    accent: '#FD9F28',
+    accent: '#3281F7',
     done: '#AAAAAA',
   },
   textButton: {
     default: '#9F9F9F',
-    accent: '#FD9F28',
+    accent: '#3281F7',
   },
 };
 

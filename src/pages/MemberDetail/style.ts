@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 import TabsList from '@components/TabsList';
 import { Link } from 'react-router-dom';
+import Divider from '@components/common/Divider';
 
 export const Container = styled.div`
-  width: 928px;
+  width: 800px;
   margin: 0 auto;
 `;
 
@@ -34,7 +35,10 @@ export const CustomTabs = styled(TabsList)`
   margin: 32px 32px;
 `;
 
-export const PostingContainer = styled.ul``;
+export const PostingContainer = styled.ul`
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
 
 export const PostingItem = styled.li``;
 
@@ -54,7 +58,15 @@ export const Title = styled.h1`
   margin: 32px 0;
 `;
 
+export const Category = styled.h3`
+  margin: 40px 16px 16px 16px;
+`;
+
 export const CustomLink = styled(Link)`
   color: inherit;
   text-decoration: none;
 `;
+
+export const HorizontalDivider = styled(Divider)``;
+
+export const LinkContainer = styled.div``;

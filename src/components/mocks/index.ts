@@ -5,7 +5,19 @@ export const tags = [
   { id: 1, content: 'ts' },
   { id: 2, content: 'js' },
   { id: 3, content: '프론트' },
-].map((tag) => ({ id: tag.id, content: `# ${tag.content}` }));
+  { id: 4, content: 'ts' },
+  { id: 5, content: 'js' },
+  { id: 6, content: '프론트' },
+  { id: 7, content: 'ts' },
+  { id: 8, content: 'js' },
+  { id: 9, content: '프론트' },
+  { id: 10, content: 'ts' },
+  { id: 11, content: 'js' },
+  { id: 12, content: '프론트' },
+  { id: 13, content: 'ts' },
+  { id: 14, content: 'js' },
+  { id: 15, content: '프론트' },
+].map((tag) => ({ id: tag.id, content: `#${tag.content}` }));
 
 export const infos = [
   {
@@ -21,13 +33,13 @@ export const infos = [
   {
     id: 3,
     type: 'limit',
-    content: '5',
+    content: '5명',
   },
-  {
-    id: 4,
-    type: 'end',
-    content: '2022-09-25',
-  },
+  // {
+  //   id: 4,
+  //   type: 'end',
+  //   content: '2022-09-25',
+  // },
   {
     id: 5,
     type: 'district',
@@ -35,33 +47,38 @@ export const infos = [
   },
 ];
 
-export const title =
-  'typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집 typescript 스터디 모집';
+export const title = 'typescript 스터디 모집 typescript 스터디 모집';
 
 export const districts = [
   {
     id: 1,
-    option: '서울',
+    type: 'district',
+    content: '서울',
   },
   {
     id: 2,
-    option: '부산',
+    type: 'district',
+    content: '부산',
   },
   {
     id: 3,
-    option: '대구',
+    type: 'district',
+    content: '대구',
   },
   {
     id: 4,
-    option: '인천',
+    type: 'district',
+    content: '인천',
   },
   {
     id: 5,
-    option: '대전',
+    type: 'district',
+    content: '대전',
   },
   {
     id: 6,
-    option: '울산',
+    type: 'district',
+    content: '울산',
   },
 ];
 
@@ -79,6 +96,8 @@ export const postings = [
     content,
     tags,
     createdDate: '2022-08-12',
+    maxStudyMemberCount: 5,
+    currentStudyMemberCount: 1,
   },
   {
     id: 2,
@@ -93,6 +112,40 @@ export const postings = [
     content,
     tags,
     createdDate: '2022-08-12',
+    maxStudyMemberCount: 5,
+    currentStudyMemberCount: 1,
+  },
+  {
+    id: 3,
+    nickName: '준',
+    time: '20분전',
+    title,
+    infos,
+    viewCount: 15,
+    likeCount: 7,
+    commentCount: 3,
+    isRecruiting: true,
+    content,
+    tags,
+    createdDate: '2022-08-12',
+    maxStudyMemberCount: 5,
+    currentStudyMemberCount: 1,
+  },
+  {
+    id: 4,
+    nickName: '준',
+    time: '20분전',
+    title,
+    infos,
+    viewCount: 15,
+    likeCount: 7,
+    commentCount: 3,
+    isRecruiting: true,
+    content,
+    tags,
+    createdDate: '2022-08-12',
+    maxStudyMemberCount: 5,
+    currentStudyMemberCount: 1,
   },
 ];
 

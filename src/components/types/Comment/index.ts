@@ -1,5 +1,9 @@
-type keyType =
+export type keyType =
+  | 'writerId'
   | 'id'
+  | 'commentId'
+  | 'isStudyOrganizer'
+  | 'isMyComment'
   | 'nickname'
   | 'time'
   | 'isEditied'

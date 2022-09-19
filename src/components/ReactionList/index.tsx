@@ -1,27 +1,19 @@
-import React from 'react';
+/* eslint-disable react/require-default-props */
 import ReactionItem from '@components/ReactionItem';
 import emojisType from '@components/types/ReactionList';
 import StyledContainer from './style';
 
 type ReactionListProps = {
-  // eslint-disable-next-line react/require-default-props
   className?: string;
   emojis: emojisType[];
-  commentId: number;
+  // eslint-disable-next-line no-unused-vars
+  handleClick?: (selectedContent: string) => void;
 };
 
-const ReactionList = ({ className, emojis, commentId }: ReactionListProps) => (
+const ReactionList = ({ className, emojis, handleClick }: ReactionListProps) => (
   <StyledContainer className={className}>
     {emojis.map(({ id, type, value, count, isSelected }) => (
-      <ReactionItem
-        key={`ReactionList-emoji-${id}`}
-        id={id}
-        commentId={commentId}
-        content={value}
-        count={count}
-        label={type}
-        isSelected={isSelected}
-      />
+      <ReactionItem key={`ReactionList-emoji-${id}`} content={value} count={count} label={type} isSelected={isSelected} handleClick={handleClick} />
     ))}
   </StyledContainer>
 );

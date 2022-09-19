@@ -10,8 +10,8 @@ export default {
 
 const Template: ComponentStory<typeof Item> = (args) => <Item {...args} />;
 
-const { option } = options[0];
+const { content } = options[0];
 export const DefaultItem = Template.bind({});
 DefaultItem.args = {
-  option,
+  option: content,
 };

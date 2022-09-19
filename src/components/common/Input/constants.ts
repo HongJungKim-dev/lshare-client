@@ -19,6 +19,10 @@ export const sizes: any = {
     width: '400px',
     height: '48px',
   },
+  regular: {
+    width: '189px',
+    height: '48px',
+  },
   small: {
     width: '157px',
     height: '48px',

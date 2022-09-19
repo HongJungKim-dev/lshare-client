@@ -13,7 +13,7 @@ const makeClosedStyle = (clamp: number) => {
 };
 
 export const Content = styled.div<{ isClosed: boolean; clamp: number }>`
-  line-height: 150%;
+  line-height: 160%;
   ${({ isClosed, clamp }) => isClosed && makeClosedStyle(clamp)}
 `;
 

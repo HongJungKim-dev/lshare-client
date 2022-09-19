@@ -15,27 +15,11 @@ type DropDownProps = {
   options: Items[];
   isStartFromRight?: boolean;
   className?: string;
+  type?: string;
 };
 
-const DropDown = ({
-  width,
-  height,
-  selectTitle,
-  optionsWidth = '100%',
-  isStartFromRight,
-  options,
-  className,
-}: DropDownProps) => {
-  const {
-    isClicked,
-    isMouseOvered,
-    handleMouseOver,
-    handleMouseOut,
-    handleMouseDown,
-    handleMouseUp,
-    handleClick,
-    resetClick,
-  } = useMouse(false);
+const DropDown = ({ width, height, selectTitle, optionsWidth = '100%', isStartFromRight, options, className, type }: DropDownProps) => {
+  const { isClicked, isMouseOvered, handleMouseOver, handleMouseOut, handleMouseDown, handleMouseUp, handleClick } = useMouse(false);
 
   const [dropDownItem] = useRecoilState(dropDownItemState);
 
@@ -51,22 +35,10 @@ const DropDown = ({
   }, []);
 
   useEffect(() => {
-    const resetAllClick = () => {
-      resetClick();
-      setIsClickAway(false);
-    };
-
-    if (isClickAway) {
-      resetAllClick();
+    if (isClicked && isClickAway) {
+      handleClick();
     }
-  }, [isClickAway, isClicked]);
-
-  useEffect(() => {
-    if (!isClicked) {
-      return;
-    }
-    handleClick();
-  }, [dropDownItem]);
+  }, [isClickAway]);
 
   return (
     <S.Container width={width} height={height} ref={drop} className={className}>
@@ -75,17 +47,12 @@ const DropDown = ({
         handleMouseOut={handleMouseOut}
         handleMouseDown={handleMouseDown}
         handleMouseUp={handleMouseUp}
-        selectTitle={dropDownItem || selectTitle}
+        selectTitle={dropDownItem.find((item) => item.type === type)?.content || selectTitle}
         handleClick={handleClick}
         isMouseOvered={isMouseOvered}
       />
-      <S.Content
-        className={selectTitle}
-        width={optionsWidth}
-        isStartFromRight={isStartFromRight}
-        isClicked={isClicked}
-      >
-        <Options options={options} handleClickSelect={handleClick} />
+      <S.Content className={selectTitle} width={optionsWidth} isStartFromRight={isStartFromRight} isClicked={isClicked}>
+        <Options type={type} options={options} handleClickSelect={handleClick} />
       </S.Content>
     </S.Container>
   );

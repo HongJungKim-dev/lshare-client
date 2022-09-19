@@ -3,6 +3,7 @@ import Button from '@components/common/Button';
 import Input from '@components/common/Input';
 import Image from '@common/Image';
 import Icon from '@components/common/Icon';
+import Divider from '@components/common/Divider';
 
 export const Container = styled.div`
   width: 432px;
@@ -15,13 +16,12 @@ export const FlexBox = styled.div`
 
 export const BetweenBox = styled.div`
   display: flex;
-  ${({ theme }) =>
-    theme.mixins.flexBox({ justify: 'space-between', align: 'stretch' })}
+  ${({ theme }) => theme.mixins.flexBox({ justify: 'space-between', align: 'stretch' })}
 `;
 
 export const Title = styled.h1`
   text-align: center;
-  margin: 32px 0;
+  margin: 32px 0 0 0;
 `;
 
 export const CustomInput = styled(Input)`
@@ -70,4 +70,8 @@ export const EditButton = styled(Button)`
   ${buttonStyle}
   color: ${({ theme }) => theme.colors.background};
   font-weight: bold;
+`;
+
+export const HorizontalDivider = styled(Divider)`
+  margin: 16px 0;
 `;

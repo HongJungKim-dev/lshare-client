@@ -12,21 +12,8 @@ type ButtonProps = {
   handleClick?: () => void;
 };
 
-const Button = ({
-  mode = 'default',
-  size = 'medium',
-  disabled = false,
-  children = '',
-  className,
-  handleClick,
-}: ButtonProps) => (
-  <StyledButton
-    mode={mode}
-    size={size}
-    disabled={disabled}
-    className={className}
-    handleClick={handleClick}
-  >
+const Button = ({ mode = 'default', size = 'medium', disabled = false, children = '', className, handleClick }: ButtonProps) => (
+  <StyledButton mode={mode} size={size} disabled={disabled} className={className} handleClick={handleClick}>
     {children}
   </StyledButton>
 );

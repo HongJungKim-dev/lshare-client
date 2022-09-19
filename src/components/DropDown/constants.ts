@@ -12,22 +12,21 @@ export const dropDownSize: DropDownSizeType = {
 };
 
 export const optionsWidth = '200px';
-export const selectTitles = ['미정'];
+export const selectTitles = ['온라인/오프라인'];
 export const options = [
   {
     id: 1,
-    option: '미정',
+    type: 'studyWay',
+    content: '온라인',
   },
   {
     id: 2,
-    option: '오프라인',
+    type: 'studyWay',
+    content: '오프라인',
   },
   {
     id: 3,
-    option: '온라인',
-  },
-  {
-    id: 4,
-    option: '온/오프라인',
+    type: 'studyWay',
+    content: '온라인/오프라인',
   },
 ];

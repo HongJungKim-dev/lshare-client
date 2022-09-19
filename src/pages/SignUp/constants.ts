@@ -1,15 +1,18 @@
 const options = [
   {
     id: 1,
-    option: '직접입력',
+    type: 'email',
+    content: '직접입력',
   },
   {
     id: 2,
-    option: 'naver.com',
+    type: 'email',
+    content: 'naver.com',
   },
   {
     id: 3,
-    option: 'google.com',
+    type: 'email',
+    content: 'google.com',
   },
 ];
 

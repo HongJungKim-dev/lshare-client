@@ -1,7 +1,6 @@
 /* eslint-disable react/require-default-props */
 import React, { useState, useRef, useEffect, ChangeEvent } from 'react';
 import Search from '@components/Search';
-import SearchTag from '@components/SearchTag';
 import * as S from './style';
 
 type SearchAreaProps = {
@@ -10,24 +9,17 @@ type SearchAreaProps = {
   value?: string;
   // eslint-disable-next-line no-unused-vars
   handleChangeValue?: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleFocusDefault: () => void;
+  handleBlur: () => void;
+  handleBlurTag?: () => void;
+  isFocusedTag?: boolean;
 };
 
-const SearchArea = ({
-  className,
-  id,
-  value,
-  handleChangeValue,
-}: SearchAreaProps) => {
-  const [isFocused, setIsFocused] = useState(false);
-  const [isClickAway, setIsClickAway] = useState(false);
+const SearchArea = ({ className, id, value, handleChangeValue, handleFocusDefault, handleBlur, handleBlurTag, isFocusedTag }: SearchAreaProps) => {
   const target = useRef<HTMLDivElement>(null);
-
-  const handleFocusDefault = () => {
-    setIsFocused(true);
-  };
-
+  const [isClickAway, setIsClickAway] = useState(false);
   const handleBlurDefault = () => {
-    setIsFocused(false);
+    handleBlur();
   };
 
   useEffect(() => {
@@ -48,28 +40,17 @@ const SearchArea = ({
     };
 
     blurWhenClickAway();
-  }, [isClickAway]);
 
+    if (!handleBlurTag || isFocusedTag) {
+      return;
+    }
+
+    handleBlurTag();
+  }, [isClickAway]);
   return (
     <S.Container className={className} ref={target}>
-      <Search
-        id={id}
-        size="large"
-        handleFocusDefault={handleFocusDefault}
-        value={value}
-        handleChangeValue={handleChangeValue}
-      />
-      {isFocused ? (
-        <SearchTag id={id} mode="tag" />
-      ) : (
-        <S.CustomSearchTag
-          id={id}
-          mode="default"
-          handleFocusDefault={handleFocusDefault}
-        />
-      )}
+      <Search className="search" id={id} size="medium" handleFocusDefault={handleFocusDefault} value={value} handleChangeValue={handleChangeValue} />
     </S.Container>
   );
 };
-
 export default SearchArea;

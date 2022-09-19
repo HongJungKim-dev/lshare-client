@@ -2,7 +2,6 @@
 import IconCountBox from '@components/IconCountBox';
 import Icon from '@common/Icon';
 import LabeList from '@components/LabelList';
-import Title from '@components/common/Title';
 import { DEFAULT_CLAMP } from '@components/Posting/constants';
 import * as S from './style';
 
@@ -25,29 +24,8 @@ type PostingProps = {
   handleClick?: () => void;
 };
 
-const Posting = ({
-  nickName,
-  time,
-  title,
-  infos,
-  viewCount,
-  likeCount,
-  commentCount,
-  isRecruiting,
-  content,
-  tags,
-  clamp = DEFAULT_CLAMP,
-  className,
-  handleClick,
-}: PostingProps) => (
+const Posting = ({ nickName, time, title, infos, viewCount, likeCount, commentCount, isRecruiting, content, tags, clamp = DEFAULT_CLAMP, className, handleClick }: PostingProps) => (
   <S.PostingContainer className={className} onClick={handleClick}>
-    <S.TitleContainer>
-      <S.InfoContainer>
-        <S.NickName title={nickName} />
-        <Title title={time} />
-      </S.InfoContainer>
-      <S.CustomTitle title={title} />
-    </S.TitleContainer>
     <S.SubTitleContainer>
       <S.CenterContainer>
         {isRecruiting ? (
@@ -59,7 +37,13 @@ const Posting = ({
             모집완료
           </S.CustomLabel>
         )}
-        <LabeList mode="default" size="small" items={infos} />
+        <ul style={{ display: 'flex' }}>
+          {infos.map((info) => (
+            <S.InfoItem key={`posting-${info.id}`} style={{ margin: '0 8px 0 0' }}>
+              {info.content}
+            </S.InfoItem>
+          ))}
+        </ul>
       </S.CenterContainer>
       <S.IconContainer>
         <S.IconItem key="icon-view">
@@ -79,8 +63,15 @@ const Posting = ({
         </S.IconItem>
       </S.IconContainer>
     </S.SubTitleContainer>
+    <S.TitleContainer>
+      <S.CustomTitle title={title} />
+    </S.TitleContainer>
     <S.CustomPostingContent content={content} clamp={clamp} />
     <LabeList mode="default" size="small" items={tags} />
+    <S.InfoContainer>
+      <S.NickName>{nickName}</S.NickName>
+      <S.Time>{time}</S.Time>
+    </S.InfoContainer>
   </S.PostingContainer>
 );
 

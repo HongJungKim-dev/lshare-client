@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 
 const mediumSize = css`
-  width: 100px;
-  height: 40px;
-  line-height: 40px;
+  width: 80px;
+  height: 24px;
+  line-height: 24px;
 `;
 
 const mediumUiStyle = css`
